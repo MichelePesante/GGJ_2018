@@ -44,7 +44,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 					CurrentTargetSpeed = ForwardSpeed;
 				}
 #if !MOBILE_INPUT
-	            if (Input.GetKey(RunKey))
+				if (Input.GetKey(RunKey) && PlayerPrefs.GetInt("SpeedP1") == 1)
 	            {
 		            CurrentTargetSpeed *= RunMultiplier;
 		            m_Running = true;
@@ -162,7 +162,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_RigidBody.drag = 5f;
 
-                if (m_Jump)
+				if (m_Jump && PlayerPrefs.GetInt("JumpP1") == 1)
                 {
                     m_RigidBody.drag = 0f;
                     m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, 0f, m_RigidBody.velocity.z);
