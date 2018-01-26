@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player1 : MonoBehaviour {
+public class Player : MonoBehaviour {
 
 	public float Speed = 0.1f;
 
@@ -14,13 +14,13 @@ public class Player1 : MonoBehaviour {
 		if (Input.GetKey (KeyCode.W)) {
 			transform.position += new Vector3 (0, 0, Speed);
 		} 
-		else if (Input.GetKey (KeyCode.A)) {
+		if (Input.GetKey (KeyCode.A)) {
 			transform.position += new Vector3 (-Speed, 0, 0);
 		} 
-		else if (Input.GetKey (KeyCode.D)) {
+		if (Input.GetKey (KeyCode.D)) {
 			transform.position += new Vector3 (Speed, 0, 0);
 		} 
-		else if (Input.GetKey (KeyCode.S)) {
+		if (Input.GetKey (KeyCode.S)) {
 			transform.position += new Vector3 (0, 0, -Speed);
 		}
 	}
