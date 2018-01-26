@@ -11,17 +11,18 @@ public class Player : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetKey (KeyCode.W)) {
+		if (Input.GetKey(KeyCode.W)) {
 			transform.position += new Vector3 (0, 0, Speed);
 		} 
-		if (Input.GetKey (KeyCode.A)) {
-			transform.position += new Vector3 (-Speed, 0, 0);
-		} 
-		if (Input.GetKey (KeyCode.D)) {
-			transform.position += new Vector3 (Speed, 0, 0);
-		} 
-		if (Input.GetKey (KeyCode.S)) {
+		else if (Input.GetKey(KeyCode.S)) {
 			transform.position += new Vector3 (0, 0, -Speed);
 		}
+
+		if (Input.GetKey(KeyCode.A)) {
+			transform.position += new Vector3 (-Speed, 0, 0);
+		} 
+		else if (Input.GetKey(KeyCode.D)) {
+			transform.position += new Vector3 (Speed, 0, 0);
+		} 
 	}
 }
