@@ -11,18 +11,22 @@ public class Player : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetKey(KeyCode.W)) {
-			transform.position += new Vector3 (0, 0, Speed);
-		} 
-		else if (Input.GetKey(KeyCode.S)) {
-			transform.position += new Vector3 (0, 0, -Speed);
+		if (Input.GetKey (KeyCode.W)) {
+			Movement (Vector3.forward, Speed);
+		}
+		if (Input.GetKey(KeyCode.S)) {
+			Movement (Vector3.back, Speed);
 		}
 
 		if (Input.GetKey(KeyCode.A)) {
-			transform.position += new Vector3 (-Speed, 0, 0);
+			Movement (Vector3.left, Speed);
 		} 
-		else if (Input.GetKey(KeyCode.D)) {
-			transform.position += new Vector3 (Speed, 0, 0);
+		if (Input.GetKey(KeyCode.D)) {
+			Movement (Vector3.right, Speed);
 		} 
+	}
+
+	public void Movement (Vector3 _direction, float _speed) {
+		transform.position = transform.position + _direction * _speed;
 	}
 }
