@@ -25,7 +25,11 @@ public class CameraController : MonoBehaviour {
 	void Update () {
 		// La mia posizione diventa quella del player.
 		transform.position = player.transform.position;
-		// La mia rotazione diventa quella del player.
-		transform.rotation = player.transform.rotation;
+
+
+
+		if (Input.GetKey (KeyCode.L)) {
+		
+		}
 	}
 }
