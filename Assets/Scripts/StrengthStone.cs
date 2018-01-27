@@ -1,21 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class StrengthStone : MonoBehaviour {
 
 	private Rigidbody rb;
-	private PlayerController pc;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
-		pc = GameObject.FindObjectOfType<PlayerController> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyUp (pc.strengthButton)) {
+		if (CrossPlatformInputManager.GetButton("Strength")) {
+			transform.parent = null;
+		}
+
+		if (CrossPlatformInputManager.GetButton("StrengthJoy")) {
 			transform.parent = null;
 		}
 	}

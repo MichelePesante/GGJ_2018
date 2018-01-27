@@ -46,7 +46,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 					CurrentTargetSpeed = ForwardSpeed;
 				}
 #if !MOBILE_INPUT
-				if (Input.GetKey(RunKey) && PlayerPrefs.GetInt("SpeedP1") == 1)
+
+				if (Input.GetKey(RunKey))
 	            {
 		            CurrentTargetSpeed *= RunMultiplier;
 		            m_Running = true;
@@ -56,17 +57,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		            m_Running = false;
 				}
 
-				/*if (name == "Player2") {
-					if (Input.GetKey(RunKey) && PlayerPrefs.GetInt("SpeedP2") == 1)
-					{
-						CurrentTargetSpeed *= RunMultiplier;
-						m_Running = true;
-					}
-					else
-					{
-						m_Running = false;
-					}
-				}*/
 #endif
             }
 
@@ -149,10 +139,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             RotateView();
 
-            if (CrossPlatformInputManager.GetButtonDown("Jump") && !m_Jump)
-            {
-                m_Jump = true;
-            }
+			if (name == "Player1") {
+				if (CrossPlatformInputManager.GetButtonDown ("Jump") && !m_Jump) {
+					m_Jump = true;
+				}
+			} else {
+				if (CrossPlatformInputManager.GetButtonDown ("JumpJoy") && !m_Jump) {
+					m_Jump = true;
+				}
+			}
         }
 
 
@@ -196,23 +191,25 @@ namespace UnityStandardAssets.Characters.FirstPerson
 					else {
 						movementSettings.RunMultiplier = 1f;
 					}
+
+					movementSettings.RunKey = KeyCode.LeftShift;
 				}
 
 				if (name == "Player2") {
-					if (m_Jump && PlayerPrefs.GetInt("JumpP2") == 1)
-					{
+					if (m_Jump && PlayerPrefs.GetInt ("JumpP2") == 1) {
 						m_RigidBody.drag = 0f;
-						m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, 0f, m_RigidBody.velocity.z);
-						m_RigidBody.AddForce(new Vector3(0f, movementSettings.JumpForce, 0f), ForceMode.Impulse);
+						m_RigidBody.velocity = new Vector3 (m_RigidBody.velocity.x, 0f, m_RigidBody.velocity.z);
+						m_RigidBody.AddForce (new Vector3 (0f, movementSettings.JumpForce, 0f), ForceMode.Impulse);
 						m_Jumping = true;
 					}
 
 					if (PlayerPrefs.GetInt ("SpeedP2") == 1) {
 						movementSettings.RunMultiplier = 2f;
-					} 
-					else {
+					} else {
 						movementSettings.RunMultiplier = 1f;
 					}
+
+					movementSettings.RunKey = KeyCode.JoystickButton0;
 				}
 
                 if (!m_Jumping && Mathf.Abs(input.x) < float.Epsilon && Mathf.Abs(input.y) < float.Epsilon && m_RigidBody.velocity.magnitude < 1f)
