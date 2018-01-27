@@ -15,23 +15,34 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public bool smooth;
         public float smoothTime = 5f;
         public bool lockCursor = true;
+		public int Player;
 
 
         private Quaternion m_CharacterTargetRot;
         private Quaternion m_CameraTargetRot;
         private bool m_cursorIsLocked = true;
 
-        public void Init(Transform character, Transform camera)
+		public void Init(Transform character, Transform camera, int p)
         {
             m_CharacterTargetRot = character.localRotation;
             m_CameraTargetRot = camera.localRotation;
+			Player = p;
         }
 
 
         public void LookRotation(Transform character, Transform camera)
         {
-            float yRot = CrossPlatformInputManager.GetAxis("Mouse X") * XSensitivity;
-            float xRot = CrossPlatformInputManager.GetAxis("Mouse Y") * YSensitivity;
+			float yRot;
+			float xRot;
+
+			if (Player == 1) {
+				yRot = CrossPlatformInputManager.GetAxis ("Mouse X") * XSensitivity;
+				xRot = CrossPlatformInputManager.GetAxis ("Mouse Y") * YSensitivity;
+			} 
+			else {
+				yRot = CrossPlatformInputManager.GetAxis ("JoyX") * XSensitivity;
+				xRot = CrossPlatformInputManager.GetAxis ("JoyY") * YSensitivity;
+			}
 
             m_CharacterTargetRot *= Quaternion.Euler (0f, yRot, 0f);
             m_CameraTargetRot *= Quaternion.Euler (-xRot, 0f, 0f);

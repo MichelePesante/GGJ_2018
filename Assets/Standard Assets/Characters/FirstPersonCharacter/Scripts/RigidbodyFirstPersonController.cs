@@ -136,7 +136,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             m_RigidBody = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
-            mouseLook.Init (transform, cam.transform);
+			if (name == "Player1") {
+				mouseLook.Init (transform, cam.transform, 1);
+			} 
+			else {
+				mouseLook.Init (transform, cam.transform, 2);
+			}
         }
 
 
@@ -251,12 +256,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private Vector2 GetInput()
         {
-            
-            Vector2 input = new Vector2
-                {
-                    x = CrossPlatformInputManager.GetAxis("Horizontal"),
-                    y = CrossPlatformInputManager.GetAxis("Vertical")
-                };
+			Vector2 input;
+			if (name == "Player1") {
+				input = new Vector2 {
+					x = CrossPlatformInputManager.GetAxis ("Horizontal"),
+					y = CrossPlatformInputManager.GetAxis ("Vertical")
+				};
+			} 
+			else {
+				input = new Vector2
+				{
+					x = CrossPlatformInputManager.GetAxis("HorizontalJoy"),
+					y = CrossPlatformInputManager.GetAxis("VerticalJoy")
+				};
+			}
 			movementSettings.UpdateDesiredTargetSpeed(input);
             return input;
         }
