@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -130,7 +130,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 6.34
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_LocalRotation.x
@@ -187,7 +187,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &182908327
 Transform:
   m_ObjectHideFlags: 0
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd71e4ac7657bd408b7e0ddf49ea431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hackerButton: 0
+  hackerButton: 102
   jumpButton: 119
   speedButton: 0
   strengthButton: 0
@@ -425,7 +425,7 @@ SphereCollider:
   m_GameObject: {fileID: 886284664}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5868263
   m_Center: {x: 0, y: -0.009307623, z: 0.17531155}
@@ -717,11 +717,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd71e4ac7657bd408b7e0ddf49ea431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hackerButton: 0
+  hackerButton: 111
   jumpButton: 0
   speedButton: 0
   strengthButton: 0
-  triggerButton: 0
+  triggerButton: 112
   playerAbilities: {fileID: 0}
 --- !u!1 &2142231976
 GameObject:

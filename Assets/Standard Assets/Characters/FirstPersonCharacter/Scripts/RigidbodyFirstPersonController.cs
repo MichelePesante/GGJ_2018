@@ -46,19 +46,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
 					CurrentTargetSpeed = ForwardSpeed;
 				}
 #if !MOBILE_INPUT
-				if (name == "Player1") {
-					if (Input.GetKey(RunKey) && PlayerPrefs.GetInt("SpeedP1") == 1)
-	            	{
-		            	CurrentTargetSpeed *= RunMultiplier;
-		            	m_Running = true;
-	            	}
-	            	else
-	            	{
-		            	m_Running = false;
-					}
+				if (Input.GetKey(RunKey) && PlayerPrefs.GetInt("SpeedP1") == 1)
+	            {
+		            CurrentTargetSpeed *= RunMultiplier;
+		            m_Running = true;
+	            }
+	            else
+	            {
+		            m_Running = false;
 				}
 
-				if (name == "Player2") {
+				/*if (name == "Player2") {
 					if (Input.GetKey(RunKey) && PlayerPrefs.GetInt("SpeedP2") == 1)
 					{
 						CurrentTargetSpeed *= RunMultiplier;
@@ -68,7 +66,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 					{
 						m_Running = false;
 					}
-				}
+				}*/
 #endif
             }
 
