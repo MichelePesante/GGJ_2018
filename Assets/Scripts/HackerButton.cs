@@ -18,6 +18,6 @@ public class HackerButton : MonoBehaviour {
 
 	void OnTriggerEnter (Collider other) {
 		if (other.tag == "Player")
-			rb.AddForce(Vector3.forward * 0.1f);
+			Debug.Log ("Ciao");
 	}
 }

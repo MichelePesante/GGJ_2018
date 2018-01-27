@@ -35,11 +35,11 @@ public class PlayerController : MonoBehaviour {
 			}
 				
 			if (Input.GetKeyDown(hackerButton) && PlayerPrefs.GetInt("HackerP1") == 1) {
-				this.gameObject.GetComponent<SphereCollider>().enabled = true;
+				this.gameObject.GetComponentInChildren<SphereCollider> ().enabled = true;
 			}
 
 			if (Input.GetKeyUp(hackerButton) && PlayerPrefs.GetInt("HackerP1") == 1) {
-				this.gameObject.GetComponent<SphereCollider>().enabled = false;
+				this.gameObject.GetComponentInChildren<SphereCollider> ().enabled = false;
 			}
 		}
 
@@ -60,13 +60,13 @@ public class PlayerController : MonoBehaviour {
 				playerAbilities.SendAb ("Strength", 1);
 			}
 
-			if (Input.GetKeyDown(hackerButton) && PlayerPrefs.GetInt("HackerP2") == 1) {
+			/*if (Input.GetKeyDown(hackerButton) && PlayerPrefs.GetInt("HackerP2") == 1) {
 				this.gameObject.GetComponent<SphereCollider>().enabled = true;
 			}
 
 			if (Input.GetKeyUp(hackerButton) && PlayerPrefs.GetInt("HackerP2") == 1) {
 				this.gameObject.GetComponent<SphereCollider>().enabled = false;
-			}
+			}*/
 		}
 	}
 }
