@@ -60,13 +60,13 @@ public class PlayerController : MonoBehaviour {
 				playerAbilities.SendAb ("Strength", 1);
 			}
 
-			/*if (Input.GetKeyDown(hackerButton) && PlayerPrefs.GetInt("HackerP2") == 1) {
+			if (Input.GetKeyDown(hackerButton) && PlayerPrefs.GetInt("HackerP2") == 1) {
 				this.gameObject.GetComponent<SphereCollider>().enabled = true;
 			}
 
 			if (Input.GetKeyUp(hackerButton) && PlayerPrefs.GetInt("HackerP2") == 1) {
 				this.gameObject.GetComponent<SphereCollider>().enabled = false;
-			}*/
+			}
 		}
 	}
 }
