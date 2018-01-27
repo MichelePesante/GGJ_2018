@@ -184,6 +184,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 						m_RigidBody.AddForce(new Vector3(0f, movementSettings.JumpForce, 0f), ForceMode.Impulse);
 						m_Jumping = true;
 					}
+
+					if (PlayerPrefs.GetInt ("SpeedP1") == 1) {
+						movementSettings.RunMultiplier = 2f;
+					} 
+					else {
+						movementSettings.RunMultiplier = 1f;
+					}
 				}
 
 				if (name == "Player2") {
@@ -193,6 +200,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 						m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, 0f, m_RigidBody.velocity.z);
 						m_RigidBody.AddForce(new Vector3(0f, movementSettings.JumpForce, 0f), ForceMode.Impulse);
 						m_Jumping = true;
+					}
+
+					if (PlayerPrefs.GetInt ("SpeedP2") == 1) {
+						movementSettings.RunMultiplier = 2f;
+					} 
+					else {
+						movementSettings.RunMultiplier = 1f;
 					}
 				}
 
