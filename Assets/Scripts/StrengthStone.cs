@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HackerButton : MonoBehaviour {
+public class StrengthStone : MonoBehaviour {
 
 	private Rigidbody rb;
 
@@ -17,7 +17,8 @@ public class HackerButton : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other) {
-		if (other.tag == "Hacker")
+		if (other.tag == "Strength") {
 			Debug.Log ("Ciao");
+		}
 	}
 }
